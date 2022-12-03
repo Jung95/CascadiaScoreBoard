@@ -78,17 +78,17 @@ $( document ).ready(function() {
                 state = 2;
                 selectedPlayer = 0;
                 $('#scoreName').text(players[selectedPlayer].name)
-                 $('#bear').val(players[selectedPlayer].bear);
-                $('#salmon').val(players[selectedPlayer].salmon);
-                $('#elk').val(players[selectedPlayer].elk);
-                $('#hawk').val(players[selectedPlayer].hawk);
-                $('#fox').val(players[selectedPlayer].fox);
-                $('#snow').val(players[selectedPlayer].snow);
-                $('#forest').val(players[selectedPlayer].forest);
-                $('#desert').val(players[selectedPlayer].desert);
-                $('#marsh').val(players[selectedPlayer].marsh);
-                $('#sea').val(players[selectedPlayer].sea);
-                $('#pine').val(players[selectedPlayer].pine);
+                $('#bear').attr("placeholder",players[selectedPlayer].bear);
+                $('#salmon').attr("placeholder",players[selectedPlayer].salmon);
+                $('#elk').attr("placeholder",players[selectedPlayer].elk);
+                $('#hawk').attr("placeholder",players[selectedPlayer].hawk);
+                $('#fox').attr("placeholder",players[selectedPlayer].fox);
+                $('#snow').attr("placeholder",players[selectedPlayer].snow);
+                $('#forest').attr("placeholder",players[selectedPlayer].forest);
+                $('#desert').attr("placeholder",players[selectedPlayer].desert);
+                $('#marsh').attr("placeholder",players[selectedPlayer].marsh);
+                $('#sea').attr("placeholder",players[selectedPlayer].sea);
+                $('#pine').attr("placeholder",players[selectedPlayer].pine);
             }else{
                 selectedPlayer = selectedPlayer + 1
                 $('#selectedPlayer').text(selectedPlayer+1)
@@ -108,34 +108,69 @@ $( document ).ready(function() {
                 state = 0;
             }else{
                 selectedPlayer = selectedPlayer - 1;
+                    $('#bear').val('');
+                    $('#salmon').val('');
+                    $('#elk').val('');
+                    $('#hawk').val('');
+                    $('#fox').val('');
+                    $('#snow').val('');
+                    $('#forest').val('');
+                    $('#desert').val('');
+                    $('#marsh').val('');
+                    $('#sea').val('');
+                    $('#pine').val('');
                 $('#scoreName').text(players[selectedPlayer].name)
-                $('#bear').val(players[selectedPlayer].bear);
-                $('#salmon').val(players[selectedPlayer].salmon);
-                $('#elk').val(players[selectedPlayer].elk);
-                $('#hawk').val(players[selectedPlayer].hawk);
-                $('#fox').val(players[selectedPlayer].fox);
-                $('#snow').val(players[selectedPlayer].snow);
-                $('#forest').val(players[selectedPlayer].forest);
-                $('#desert').val(players[selectedPlayer].desert);
-                $('#marsh').val(players[selectedPlayer].marsh);
-                $('#sea').val(players[selectedPlayer].sea);
-                $('#pine').val(players[selectedPlayer].pine);
+                $('#bear').attr("placeholder",players[selectedPlayer].bear);
+                $('#salmon').attr("placeholder",players[selectedPlayer].salmon);
+                $('#elk').attr("placeholder",players[selectedPlayer].elk);
+                $('#hawk').attr("placeholder",players[selectedPlayer].hawk);
+                $('#fox').attr("placeholder",players[selectedPlayer].fox);
+                $('#snow').attr("placeholder",players[selectedPlayer].snow);
+                $('#forest').attr("placeholder",players[selectedPlayer].forest);
+                $('#desert').attr("placeholder",players[selectedPlayer].desert);
+                $('#marsh').attr("placeholder",players[selectedPlayer].marsh);
+                $('#sea').attr("placeholder",players[selectedPlayer].sea);
+                $('#pine').attr("placeholder",players[selectedPlayer].pine);
             }
 
         }
 
-        function nextScore(){
-                players[selectedPlayer].bear = parseInt($('#bear').val());
-                players[selectedPlayer].salmon = parseInt($('#salmon').val());
-                players[selectedPlayer].elk = parseInt($('#elk').val());
-                players[selectedPlayer].hawk =parseInt( $('#hawk').val());
-                players[selectedPlayer].fox = parseInt($('#fox').val());
-                players[selectedPlayer].snow = parseInt($('#snow').val());
-                players[selectedPlayer].forest =parseInt( $('#forest').val());
-                players[selectedPlayer].desert =parseInt( $('#desert').val());
-                players[selectedPlayer].marsh =parseInt( $('#marsh').val());
-                players[selectedPlayer].sea = parseInt($('#sea').val());
-                players[selectedPlayer].pine =parseInt( $('#pine').val());
+function nextScore() {
+    if (Number.isInteger(parseInt($('#bear').val()))) { 
+        players[selectedPlayer].bear = parseInt($('#bear').val());
+    }
+    if (Number.isInteger(parseInt($('#elk').val()))) { 
+        players[selectedPlayer].elk = parseInt($('#elk').val());
+    }
+        if (Number.isInteger(parseInt($('#hawk').val()))) { 
+        players[selectedPlayer].hawk = parseInt($('#hawk').val());
+    }
+    if (Number.isInteger(parseInt($('#salmon').val()))) { 
+        players[selectedPlayer].salmon = parseInt($('#salmon').val());
+    }
+    if (Number.isInteger(parseInt($('#fox').val()))) { 
+        players[selectedPlayer].fox = parseInt($('#fox').val());
+    }
+    if (Number.isInteger(parseInt($('#snow').val()))) { 
+        players[selectedPlayer].snow = parseInt($('#snow').val());
+    }
+    if (Number.isInteger(parseInt($('#forest').val()))) { 
+        players[selectedPlayer].forest = parseInt($('#forest').val());
+    }
+    if (Number.isInteger(parseInt($('#desert').val()))) { 
+        players[selectedPlayer].desert = parseInt($('#desert').val());
+    }
+    if (Number.isInteger(parseInt($('#marsh').val()))) { 
+        players[selectedPlayer].marsh = parseInt($('#marsh').val());
+    }
+    if (Number.isInteger(parseInt($('#sea').val()))) { 
+        players[selectedPlayer].sea = parseInt($('#sea').val());
+    }
+    if (Number.isInteger(parseInt($('#pine').val()))) { 
+        players[selectedPlayer].pine = parseInt($('#pine').val());
+    }
+                
+
 
                  if(selectedPlayer == (playerNumber-1)){
                     calcResult()
@@ -143,20 +178,31 @@ $( document ).ready(function() {
                     $('#resultboard').show()
                     state = 3;
                     selectedPlayer = 0;
-                }else{
+                 } else {
+                    $('#bear').val('');
+                    $('#salmon').val('');
+                    $('#elk').val('');
+                    $('#hawk').val('');
+                    $('#fox').val('');
+                    $('#snow').val('');
+                    $('#forest').val('');
+                    $('#desert').val('');
+                    $('#marsh').val('');
+                    $('#sea').val('');
+                    $('#pine').val('');
                     selectedPlayer = selectedPlayer + 1;
                     $('#scoreName').text(players[selectedPlayer].name)
-                    $('#bear').val(players[selectedPlayer].bear);
-                    $('#salmon').val(players[selectedPlayer].salmon);
-                    $('#elk').val(players[selectedPlayer].elk);
-                    $('#hawk').val(players[selectedPlayer].hawk);
-                    $('#fox').val(players[selectedPlayer].fox);
-                    $('#snow').val(players[selectedPlayer].snow);
-                    $('#forest').val(players[selectedPlayer].forest);
-                    $('#desert').val(players[selectedPlayer].desert);
-                    $('#marsh').val(players[selectedPlayer].marsh);
-                    $('#sea').val(players[selectedPlayer].sea);
-                    $('#pine').val(players[selectedPlayer].pine);
+                $('#bear').attr("placeholder",players[selectedPlayer].bear);
+                $('#salmon').attr("placeholder",players[selectedPlayer].salmon);
+                $('#elk').attr("placeholder",players[selectedPlayer].elk);
+                $('#hawk').attr("placeholder",players[selectedPlayer].hawk);
+                $('#fox').attr("placeholder",players[selectedPlayer].fox);
+                $('#snow').attr("placeholder",players[selectedPlayer].snow);
+                $('#forest').attr("placeholder",players[selectedPlayer].forest);
+                $('#desert').attr("placeholder",players[selectedPlayer].desert);
+                $('#marsh').attr("placeholder",players[selectedPlayer].marsh);
+                $('#sea').attr("placeholder",players[selectedPlayer].sea);
+                $('#pine').attr("placeholder",players[selectedPlayer].pine);
                 }
         }
 
