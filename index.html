@@ -15,7 +15,7 @@
     <div class="mx-auto border border-warning rounded p-2 m-2"  style="width: 600px">
         <div id="playerNumberSelector">
         <span>
-            <h2>Player Number</h2>
+            <h1>Cascadia Scoreboard</h1>
             <h4>How many people play the Cascadia?</h4>
         </span>
         <br>
@@ -25,14 +25,14 @@
         <button type="button" class="btn btn-info" onClick="setPlayerNumber(4)">4</button>
     </div>
     <div id="playerNameSelcetor">
-        <form>
             <div class="form-group">
-                <label for="playerName">Player<span id="selectedPlayer"></span> Name</label>
+                <h4><label for="playerName">What is Player<span id="selectedPlayer"></span> Name?</label></h4>
+
                 <input type="text" class="form-control" id="playerName" placeholder="Player Name">
             </div>
+            <br/>
             <button type="button" class="btn btn-primary" onClick="preName()">Pre</button>
             <button type="button" class="btn btn-primary" onClick="nextName()">Next</button>
-        </form>
     </div>
     <div id="scoreboard">
         <table class="table">
@@ -95,53 +95,53 @@
     <div id="resultboard">
         <h2>Result</h2>
         <table class="table">
-            <thead class="thead-dark">
+            <thead>
                 <tr id="resultName">
                 <th scope="col">#</th>
                 </tr>
             </thead>
             <tbody>
                 <tr id="resultBear">
-                <th scope="row">곰</th>
+                <th scope="row"><img src="img/bear.png" alt="BEAR" height="30"></th>
                 </tr>
                 <tr id="resultSalmon">
-                <th scope="row">연어</th>
+                <th scope="row"><img src="img/salmon.png" alt="SALMON" height="30"></th>
                 </tr>
                 <tr id="resultElk">
-                <th scope="row">사슴</th>
+                <th scope="row"><img src="img/elk.png" alt="ELK" height="30"></th>
                 </tr>
                 <tr id="resultHawk">
-                <th scope="row">매</th>
+                <th scope="row"><img src="img/hawk.png" alt="HAUK" height="30"></th>
                 </tr>
                 <tr id="resultFox">
-                <th scope="row">여우</th>
+                <th scope="row"><img src="img/fox.png" alt="FOX" height="30"></th>
                 </tr>
-                <tr id="resultAnimal">
-                <th scope="row">동물점수</th>
+                <tr id="resultAnimal" class="table-success">
+                <th scope="row">Wildlife</th>
                 </tr>
                 <tr id="resultSnow">
-                <th scope="row">툰드라</th>
+                <th scope="row"><img src="img/mnt.png" alt="SNOW" height="30"></th>
                 </tr>
                 <tr id="resultForest">
-                <th scope="row">숲</th>
+                <th scope="row"><img src="img/forest.png" alt="FOREST" height="30"></th>
                 </tr>
                 <tr id="resultDesert">
-                <th scope="row">사막</th>
+                <th scope="row"><img src="img/desert.png" alt="DESERT" height="30"></th>
                 </tr>
                 <tr id="resultMarsh">
-                <th scope="row">습지</th>
+                <th scope="row"><img src="img/marsh.png" alt="MARSH" height="30"></th>
                 </tr>
                 <tr id="resultSea">
-                <th scope="row">바다</th>
+                <th scope="row"><img src="img/sea.png" alt="SEA" height="30"></th>
                 </tr>
-                <tr id="resultWild">
-                <th scope="row">지형점수</th>
+                <tr id="resultWild" class="table-warning">
+                <th scope="row">Habitat</th>
                 </tr>
                 <tr id="resultPine">
-                <th scope="row">솔방울</th>
+                <th scope="row"><img src="img/pine.png" alt="PINE" height="30"></th>
                 </tr>
-                <tr id="resultTotal">
-                <th scope="row">총점</th>
+                <tr id="resultTotal" class="table-primary">
+                <th scope="row" >Total</th>
                 </tr>
             </tbody>
             </table>
