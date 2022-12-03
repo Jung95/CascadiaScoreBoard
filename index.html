@@ -12,7 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="playerNumberSelector">
+    <div class="mx-auto border border-warning rounded p-2 m-2"  style="width: 600px">
+        <div id="playerNumberSelector">
         <span>
             <h2>Player Number</h2>
             <h4>How many people play the Cascadia?</h4>
@@ -43,47 +44,47 @@
             </thead>
             <tbody>
                 <tr>
-                <th scope="row">BEAR</th>
+                <th scope="row"><img src="img/bear.png" alt="BEAR" height="30"></th>
                 <td><input type="number" id="bear"></td>
                 </tr>
                 <tr>
-                <th scope="row">SALMON</th>
+                <th scope="row"><img src="img/salmon.png" alt="SALMON" height="30"></th>
                 <td><input type="number" id="salmon"></td>
                 </tr>
                 <tr>
-                <th scope="row">ELK</th>
+                <th scope="row"><img src="img/elk.png" alt="ELK" height="30"></th>
                 <td><input type="number" id="elk"></td>
                 </tr>
                 <tr>
-                <th scope="row">HAWK</th>
+                <th scope="row"><img src="img/hawk.png" alt="HAWK" height="30"></th>
                 <td><input type="number" id="hawk"></td>
                 </tr>
                 <tr>
-                <th scope="row">FOX</th>
+                <th scope="row"><img src="img/fox.png" alt="FOX" height="30"></th>
                 <td><input type="number" id="fox"></td>
                 </tr>
                 <tr>
-                <th scope="row">툰드라</th>
+                <th scope="row"><img src="img/mnt.png" alt="SNOW" height="30"></th>
                 <td><input type="number" id="snow"></td>
                 </tr>
                 <tr>
-                <th scope="row">숲</th>
+                <th scope="row"><img src="img/forest.png" alt="FOREST" height="30"></th>
                 <td><input type="number" id="forest"></td>
                 </tr>
                 <tr>
-                <th scope="row">사막</th>
+                <th scope="row"><img src="img/desert.png" alt="DESERT" height="30"></th>
                 <td><input type="number" id="desert"></td>
                 </tr>
                 <tr>
-                <th scope="row">습지</th>
+                <th scope="row"><img src="img/marsh.png" alt="MARSH" height="30"></th>
                 <td><input type="number" id="marsh"></td>
                 </tr>
                 <tr>
-                <th scope="row">바다</th>
+                <th scope="row"><img src="img/sea.png" alt="SEA" height="30"></th>
                 <td><input type="number" id="sea"></td>
                 </tr>
                 <tr>
-                <th scope="row">솔방울</th>
+                <th scope="row"><img src="img/pine.png" alt="PINE" height="30"></th>
                 <td><input type="number" id="pine"></td>
                 </tr>
             </tbody>
@@ -145,6 +146,8 @@
             </tbody>
             </table>
     </div>
+    </div>
+    
     <script>
         $( document ).ready(function() {
             $('#playerNameSelcetor').hide()
