@@ -7,6 +7,24 @@ class Player {
     constructor(number) {
         this.name = 'player ' + number
         this.default = true
+        this.initPoint()
+    }
+
+    setName(name) {
+        if (name !== '') {
+            this.name = name
+            this.default = false
+        }
+    }
+    initBonus() {
+        // bonus
+        this.snowB = 0;
+        this.forestB = 0;
+        this.desertB = 0;
+        this.marshB = 0;
+        this.seaB = 0;
+    }
+    initPoint() {
         //animal
         this.bear = 0;
         this.salmon = 0;
@@ -22,23 +40,11 @@ class Player {
         //pine
         this.pine = 0;
         // bonus
-        this.snowB = 0;
-        this.forestB = 0;
-        this.desertB = 0;
-        this.marshB = 0;
-        this.seaB = 0;
+        this.initBonus()
         // total
         this.animal = 0;
         this.wild = 0;
         this.total = 0;
-    }
-
-    setName(name) {
-        if (name !== '') {
-            this.name = name
-            this.default = false
-        }
-
     }
 }
 let state = 0;
@@ -59,6 +65,7 @@ function setPlayerNumber(number) {
 }
 
 function preName() {
+    players[selectedPlayer].setName($('#playerName').val())
     if (selectedPlayer == 0) {
         $('#playerNameSelcetor').hide()
         $('#playerNumberSelector').show()
@@ -104,6 +111,39 @@ function nextName() {
 }
 
 function preScore() {
+    if (Number.isInteger(parseInt($('#bear').val()))) {
+        players[selectedPlayer].bear = parseInt($('#bear').val());
+    }
+    if (Number.isInteger(parseInt($('#elk').val()))) {
+        players[selectedPlayer].elk = parseInt($('#elk').val());
+    }
+    if (Number.isInteger(parseInt($('#hawk').val()))) {
+        players[selectedPlayer].hawk = parseInt($('#hawk').val());
+    }
+    if (Number.isInteger(parseInt($('#salmon').val()))) {
+        players[selectedPlayer].salmon = parseInt($('#salmon').val());
+    }
+    if (Number.isInteger(parseInt($('#fox').val()))) {
+        players[selectedPlayer].fox = parseInt($('#fox').val());
+    }
+    if (Number.isInteger(parseInt($('#snow').val()))) {
+        players[selectedPlayer].snow = parseInt($('#snow').val());
+    }
+    if (Number.isInteger(parseInt($('#forest').val()))) {
+        players[selectedPlayer].forest = parseInt($('#forest').val());
+    }
+    if (Number.isInteger(parseInt($('#desert').val()))) {
+        players[selectedPlayer].desert = parseInt($('#desert').val());
+    }
+    if (Number.isInteger(parseInt($('#marsh').val()))) {
+        players[selectedPlayer].marsh = parseInt($('#marsh').val());
+    }
+    if (Number.isInteger(parseInt($('#sea').val()))) {
+        players[selectedPlayer].sea = parseInt($('#sea').val());
+    }
+    if (Number.isInteger(parseInt($('#pine').val()))) {
+        players[selectedPlayer].pine = parseInt($('#pine').val());
+    }
     if (selectedPlayer == 0) {
         selectedPlayer = playerNumber - 1
         $('#scoreboard').hide()
@@ -111,17 +151,7 @@ function preScore() {
         state = 0;
     } else {
         selectedPlayer = selectedPlayer - 1;
-        $('#bear').val('');
-        $('#salmon').val('');
-        $('#elk').val('');
-        $('#hawk').val('');
-        $('#fox').val('');
-        $('#snow').val('');
-        $('#forest').val('');
-        $('#desert').val('');
-        $('#marsh').val('');
-        $('#sea').val('');
-        $('#pine').val('');
+        initScoreboard()
         $('#scoreName').text(players[selectedPlayer].name)
         $('#bear').attr("placeholder", players[selectedPlayer].bear);
         $('#salmon').attr("placeholder", players[selectedPlayer].salmon);
@@ -139,6 +169,7 @@ function preScore() {
 }
 
 function nextScore() {
+    console.log(selectedPlayer)
     if (Number.isInteger(parseInt($('#bear').val()))) {
         players[selectedPlayer].bear = parseInt($('#bear').val());
     }
@@ -180,19 +211,8 @@ function nextScore() {
         $('#scoreboard').hide()
         $('#resultboard').show()
         state = 3;
-        selectedPlayer = 0;
     } else {
-        $('#bear').val('');
-        $('#salmon').val('');
-        $('#elk').val('');
-        $('#hawk').val('');
-        $('#fox').val('');
-        $('#snow').val('');
-        $('#forest').val('');
-        $('#desert').val('');
-        $('#marsh').val('');
-        $('#sea').val('');
-        $('#pine').val('');
+        initScoreboard()
         selectedPlayer = selectedPlayer + 1;
         $('#scoreName').text(players[selectedPlayer].name)
         $('#bear').attr("placeholder", players[selectedPlayer].bear);
@@ -212,6 +232,7 @@ function nextScore() {
 function calcResult() {
     //  1st : 3 , 2nd : 1 // 2
     if (playerNumber == 1) {
+        players[0].initBonus()
         if (players[0].snow >= 7) {
             players[0].snowB = 2
         }
@@ -228,6 +249,8 @@ function calcResult() {
             players[0].seaB = 2
         }
     } else if (playerNumber == 2) {
+        players[0].initBonus()
+        players[1].initBonus()
         //snow
         if (players[0].snow > players[1].snow) {
             players[0].snowB = 2
@@ -284,6 +307,7 @@ function calcResult() {
         let marshs = new Array()
         let seas = new Array()
         for (let index = 0; index < playerNumber; index++) {
+            players[index].initBonus()
             snows.push(players[index].snow)
             forests.push(players[index].forest)
             deserts.push(players[index].desert)
@@ -405,7 +429,65 @@ function bonus(array) {
 }
 
 function edit() {
+    selectedPlayer = playerNumber - 1
     $('#scoreboard').show()
     $('#resultboard').hide()
+    initReultboard()
 
+}
+
+function restart() {
+    for (let index = 0; index < players.length; index++) {
+        players[index].initPoint();
+    }
+    selectedPlayer = 0
+    $('#resultboard').hide()
+    $('#scoreboard').show()
+    initReultboard()
+
+    state = 2;
+    $('#scoreName').text(players[selectedPlayer].name)
+    $('#bear').attr("placeholder", players[selectedPlayer].bear);
+    $('#salmon').attr("placeholder", players[selectedPlayer].salmon);
+    $('#elk').attr("placeholder", players[selectedPlayer].elk);
+    $('#hawk').attr("placeholder", players[selectedPlayer].hawk);
+    $('#fox').attr("placeholder", players[selectedPlayer].fox);
+    $('#snow').attr("placeholder", players[selectedPlayer].snow);
+    $('#forest').attr("placeholder", players[selectedPlayer].forest);
+    $('#desert').attr("placeholder", players[selectedPlayer].desert);
+    $('#marsh').attr("placeholder", players[selectedPlayer].marsh);
+    $('#sea').attr("placeholder", players[selectedPlayer].sea);
+    $('#pine').attr("placeholder", players[selectedPlayer].pine);
+}
+
+function initReultboard() {
+    $('#resultName').html('<th scope="col">#</th>')
+    $('#resultBear').html('<th scope="row"><img src="img/bear.png" alt="BEAR" height="30"></th>')
+    $('#resultElk').html('<th scope="row"><img src="img/elk.png" alt="ELK" height="30"></th>')
+    $('#resultHawk').html('<th scope="row"><img src="img/hawk.png" alt="HAWK" height="30"></th>')
+    $('#resultFox').html('<th scope="row"><img src="img/fox.png" alt="FOX" height="30"></th>')
+    $('#resultSalmon').html('<th scope="row"><img src="img/salmon.png" alt="SALMON" height="30"></th>')
+    $('#resultAnimal').html('<th scope="row">Wildlife</th>')
+    $('#resultSnow').html('<th scope="row"><img src="img/mnt.png" alt="SNOW" height="30"></th>')
+    $('#resultForest').html('<th scope="row"><img src="img/forest.png" alt="FOREST" height="30"></th>')
+    $('#resultDesert').html('<th scope="row"><img src="img/desert.png" alt="DESERT" height="30"></th>')
+    $('#resultMarsh').html('<th scope="row"><img src="img/marsh.png" alt="MARSH" height="30"></th>')
+    $('#resultSea').html('<th scope="row"><img src="img/sea.png" alt="SEA" height="30"></th>')
+    $('#resultWild').html('<th scope="row">Habitat</th>')
+    $('#resultPine').html('<th scope="row"><img src="img/pine.png" alt="PINE" height="30"></th>')
+    $('#resultTotal').html('<th scope="row">Total</th>')
+}
+
+function initScoreboard() {
+    $('#bear').val('');
+    $('#salmon').val('');
+    $('#elk').val('');
+    $('#hawk').val('');
+    $('#fox').val('');
+    $('#snow').val('');
+    $('#forest').val('');
+    $('#desert').val('');
+    $('#marsh').val('');
+    $('#sea').val('');
+    $('#pine').val('');
 }
