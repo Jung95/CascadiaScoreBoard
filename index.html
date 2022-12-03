@@ -15,6 +15,7 @@
     <div id="playerNumberSelector">
         <span>
             <h2>Player Number</h2>
+            <h4>How many people play the Cascadia?</h4>
         </span>
         <br>
         <button type="button" class="btn btn-primary" onClick="setPlayerNumber(1)">1</button>
@@ -42,23 +43,23 @@
             </thead>
             <tbody>
                 <tr>
-                <th scope="row">곰</th>
+                <th scope="row">BEAR</th>
                 <td><input type="number" id="bear"></td>
                 </tr>
                 <tr>
-                <th scope="row">연어</th>
+                <th scope="row">SALMON</th>
                 <td><input type="number" id="salmon"></td>
                 </tr>
                 <tr>
-                <th scope="row">사슴</th>
-                <td><input type="number" id="dear"></td>
+                <th scope="row">ELK</th>
+                <td><input type="number" id="elk"></td>
                 </tr>
                 <tr>
-                <th scope="row">매</th>
-                <td><input type="number" id="falcon"></td>
+                <th scope="row">HAWK</th>
+                <td><input type="number" id="hawk"></td>
                 </tr>
                 <tr>
-                <th scope="row">여우</th>
+                <th scope="row">FOX</th>
                 <td><input type="number" id="fox"></td>
                 </tr>
                 <tr>
@@ -105,10 +106,10 @@
                 <tr id="resultSalmon">
                 <th scope="row">연어</th>
                 </tr>
-                <tr id="resultDear">
+                <tr id="resultElk">
                 <th scope="row">사슴</th>
                 </tr>
-                <tr id="resultFalcon">
+                <tr id="resultHawk">
                 <th scope="row">매</th>
                 </tr>
                 <tr id="resultFox">
@@ -157,8 +158,8 @@
                 //animal
                 this.bear = 0;
                 this.salmon = 0;
-                this.dear = 0;
-                this.falcon = 0;
+                this.elk = 0;
+                this.hawk = 0;
                 this.fox = 0;
                 //wild
                 this.snow = 0;
@@ -227,8 +228,8 @@
                 $('#scoreName').text(players[selectedPlayer].name)
                  $('#bear').val(players[selectedPlayer].bear);
                 $('#salmon').val(players[selectedPlayer].salmon);
-                $('#dear').val(players[selectedPlayer].dear);
-                $('#falcon').val(players[selectedPlayer].falcon);
+                $('#elk').val(players[selectedPlayer].elk);
+                $('#hawk').val(players[selectedPlayer].hawk);
                 $('#fox').val(players[selectedPlayer].fox);
                 $('#snow').val(players[selectedPlayer].snow);
                 $('#forest').val(players[selectedPlayer].forest);
@@ -258,8 +259,8 @@
                 $('#scoreName').text(players[selectedPlayer].name)
                 $('#bear').val(players[selectedPlayer].bear);
                 $('#salmon').val(players[selectedPlayer].salmon);
-                $('#dear').val(players[selectedPlayer].dear);
-                $('#falcon').val(players[selectedPlayer].falcon);
+                $('#elk').val(players[selectedPlayer].elk);
+                $('#hawk').val(players[selectedPlayer].hawk);
                 $('#fox').val(players[selectedPlayer].fox);
                 $('#snow').val(players[selectedPlayer].snow);
                 $('#forest').val(players[selectedPlayer].forest);
@@ -274,8 +275,8 @@
         function nextScore(){
                 players[selectedPlayer].bear = parseInt($('#bear').val());
                 players[selectedPlayer].salmon = parseInt($('#salmon').val());
-                players[selectedPlayer].dear = parseInt($('#dear').val());
-                players[selectedPlayer].falcon =parseInt( $('#falcon').val());
+                players[selectedPlayer].elk = parseInt($('#elk').val());
+                players[selectedPlayer].hawk =parseInt( $('#hawk').val());
                 players[selectedPlayer].fox = parseInt($('#fox').val());
                 players[selectedPlayer].snow = parseInt($('#snow').val());
                 players[selectedPlayer].forest =parseInt( $('#forest').val());
@@ -295,8 +296,8 @@
                     $('#scoreName').text(players[selectedPlayer].name)
                     $('#bear').val(players[selectedPlayer].bear);
                     $('#salmon').val(players[selectedPlayer].salmon);
-                    $('#dear').val(players[selectedPlayer].dear);
-                    $('#falcon').val(players[selectedPlayer].falcon);
+                    $('#elk').val(players[selectedPlayer].elk);
+                    $('#hawk').val(players[selectedPlayer].hawk);
                     $('#fox').val(players[selectedPlayer].fox);
                     $('#snow').val(players[selectedPlayer].snow);
                     $('#forest').val(players[selectedPlayer].forest);
@@ -452,13 +453,13 @@
 
             }
             for (let index = 0; index < playerNumber; index++) {
-                players[index].animal =  players[index].bear +  players[index].falcon +  players[index].dear +  players[index].salmon +  players[index].fox
+                players[index].animal =  players[index].bear +  players[index].hawk +  players[index].elk +  players[index].salmon +  players[index].fox
                 players[index].wild = players[index].snow + players[index].snowB + players[index].forest + players[index].forestB + players[index].desert + players[index].desertB + players[index].marsh + players[index].marshB + players[index].sea + players[index].seaB
                 players[index].total = players[index].animal + players[index].wild + players[index].pine
                 $('#resultName').append('<th>' + players[index].name + '</th>')  
                 $('#resultBear').append('<th>' + players[index].bear  + '</th>')
-                $('#resultDear').append('<th>' + players[index].dear  + '</th>')
-                $('#resultFalcon').append('<th>' + players[index].falcon  + '</th>')
+                $('#resultElk').append('<th>' + players[index].elk  + '</th>')
+                $('#resultHawk').append('<th>' + players[index].hawk  + '</th>')
                 $('#resultFox').append('<th>' + players[index].fox  + '</th>')
                 $('#resultSalmon').append('<th>' + players[index].salmon  + '</th>')
                 $('#resultAnimal').append('<th>' + players[index].animal  + '</th>')
