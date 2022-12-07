@@ -347,6 +347,7 @@ function restart() {
     $('#scoreboard').show()
     initReultboard()
     state = 2;
+    initScoreboard();
     $('#scoreName').text(players[selectedPlayer].name)
     initPlaceholder()
 }
